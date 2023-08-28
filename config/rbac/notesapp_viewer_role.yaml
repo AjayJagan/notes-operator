@@ -1,0 +1,27 @@
+# permissions for end users to view notesapps.
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRole
+metadata:
+  labels:
+    app.kubernetes.io/name: clusterrole
+    app.kubernetes.io/instance: notesapp-viewer-role
+    app.kubernetes.io/component: rbac
+    app.kubernetes.io/created-by: notes-operator
+    app.kubernetes.io/part-of: notes-operator
+    app.kubernetes.io/managed-by: kustomize
+  name: notesapp-viewer-role
+rules:
+- apiGroups:
+  - notes.notes.com
+  resources:
+  - notesapps
+  verbs:
+  - get
+  - list
+  - watch
+- apiGroups:
+  - notes.notes.com
+  resources:
+  - notesapps/status
+  verbs:
+  - get

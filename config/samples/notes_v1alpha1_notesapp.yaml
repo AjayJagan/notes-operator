@@ -1,0 +1,37 @@
+apiVersion: notes.notes.com/v1alpha1
+kind: NotesApp
+metadata:
+  labels:
+    app.kubernetes.io/name: notesapp
+    app.kubernetes.io/instance: notesapp-sample
+    app.kubernetes.io/part-of: notes-operator
+    app.kubernetes.io/managed-by: kustomize
+    app.kubernetes.io/created-by: notes-operator
+  name: notesapp-sample
+spec:
+  # TODO(user): Add fields here
+  notesAppFe:
+    repository: ajayjaganathan/notesapp-fe
+    tag: multi-arch
+    replicas: 1
+    port: 4000
+    targetPort: 4000
+    serviceType: ClusterIP
+  notesAppBe:
+    repository: ajayjaganathan/notesapp-be
+    tag: multi-arch
+    replicas: 1
+    port: 3000
+    targetPort: 3000
+    serviceType: ClusterIP
+  mongoDb:
+    repository: mongo
+    tag: latest
+    replicas: 1
+    port: 27017
+    targetPort: 27017
+    dbSize: 2Gi
+  nginxIngress:
+    fePort: 4000
+    bePort: 3000
+
