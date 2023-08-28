@@ -1,8 +1,16 @@
 # notes-operator
-// TODO(user): Add simple overview of use/purpose
+A simple operator which installs a notes app.
 
 ## Description
-// TODO(user): An in-depth paragraph about your project and overview of use
+The notes operator does the following things under the hood
+1. Installs a front-end app written in react
+2. Installs a back-end app written in node.js
+3. Installs a mongodb(pvc)
+4. Sets up the ingress using nginx
+
+if running on minikube, follow these steps to enable ingress addon: [minikube setup](https://kubernetes.io/docs/tasks/access-application-cluster/ingress-minikube/)
+
+Dont forget to run and apply the *make manifest* command which generates the RBAC rules.
 
 ## Getting Started
 You’ll need a Kubernetes cluster to run against. You can use [KIND](https://sigs.k8s.io/kind) to get a local cluster for testing, or run against a remote cluster.
