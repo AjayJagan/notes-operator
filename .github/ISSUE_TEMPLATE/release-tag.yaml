@@ -1,0 +1,42 @@
+name: Release Tag Submission
+description: Submit a release tag for processing
+title: "[Release]: "
+labels: ["release", "automation"]
+body:
+  - type: markdown
+    attributes:
+      value: "## Submit your release tag below"
+
+  - type: input
+    id: team-name
+    attributes:
+      label: "Team Name"
+      description: "Enter your team name"
+      placeholder: "e.g., Backend Team"
+    validations:
+      required: true
+
+  - type: input
+    id: repo-name
+    attributes:
+      label: "Repository Name"
+      description: "Enter the repository where the tag was created"
+      placeholder: "e.g., service-api"
+    validations:
+      required: true
+
+  - type: input
+    id: tag-name
+    attributes:
+      label: "Release Tag"
+      description: "Enter the tag that was created"
+      placeholder: "e.g., v1.2.3"
+    validations:
+      required: true
+
+  - type: textarea
+    id: release-notes
+    attributes:
+      label: "Release Notes"
+      description: "Briefly describe this release"
+      placeholder: "Bug fixes and performance improvements"
